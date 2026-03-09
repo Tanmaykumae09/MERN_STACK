@@ -1,0 +1,18 @@
+.big{
+    border: 2px solid black;
+    padding: 14px;
+    margin: 14px;
+    background-color: red;
+}
+.childcontainer{
+    border: 2px solid black;
+    padding: 14px;
+    margin: 14px;
+    background-color: rgb(71, 38, 38);
+}
+.child{
+     border: 2px solid black;
+    padding: 14px;
+    margin: 14px;
+    background-color: rgb(174, 138, 138);
+}
