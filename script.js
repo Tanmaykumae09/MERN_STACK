@@ -147,13 +147,31 @@ setInterval(() => {
     document.querySelector(".child").style.background = getrandom();
 }, 1000);
 
-console.log("tanmay is hacker")
-console.log("rohan is hecker")
+
+// asynchronis 
+console.log("hey this is tanmay")
+console.log("this is the seconnd line to execute")
+
+setTimeout(()=>{
+    document.body.style.background="yellow"
+},3000)
+
+console.log("The End")
+// synchronis and asynchronisis 
+console.log("one")
+console.log("two")
+console.log("three")
 
 
-setTimeout(() => {
-    console.log("i am inside the timer")
-}, 3000)
+//call back is a function passed as an argument to anthoer function 
+function greet(name){
+    console.log("hello"+name);
+}
+ 
+function wished(greet){
+    greet("tanmay");
+}
 
-console.log("The end")
-//call backs 
+wished(greet)
+
+
