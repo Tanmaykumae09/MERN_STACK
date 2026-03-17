@@ -152,9 +152,9 @@ setInterval(() => {
 console.log("hey this is tanmay")
 console.log("this is the seconnd line to execute")
 
-setTimeout(()=>{
-    document.body.style.background="yellow"
-},3000)
+setTimeout(() => {
+    document.body.style.background = "yellow"
+}, 3000)
 
 console.log("The End")
 // synchronis and asynchronisis 
@@ -164,14 +164,43 @@ console.log("three")
 
 
 //call back is a function passed as an argument to anthoer function 
-function greet(name){
-    console.log("hello"+name);
+function greet(name) {
+    console.log("hello" + name);
 }
- 
-function wished(greet){
-    greet("tanmay");
+
+function wished(greet) {
+    greet("Tanmay")
 }
+
 
 wished(greet)
 
 
+function sum(a, b) {
+    console.log(a + b)
+}
+
+function calculator(sum) {
+    sum(2, 3)
+}
+
+
+calculator(sum)
+
+
+const getData = (data , getNextdata) => {
+    setTimeout(()=>{
+        console.log("DATA:", data);
+        if(getNextdata){
+            getNextdata();
+        }
+    },2000)
+}
+
+getData(1,()=>{
+    getData(2, ()=>{
+        getData(3,()=>{
+            getData(4)
+        })
+    })
+})
