@@ -197,10 +197,71 @@ const getData = (data , getNextdata) => {
     },2000)
 }
 
-getData(1,()=>{
-    getData(2, ()=>{
-        getData(3,()=>{
-            getData(4)
-        })
+// getData(1,()=>{
+//     getData(2, ()=>{
+//         getData(3,()=>{
+//             getData(4)
+//         })
+//     })
+// })
+
+
+//promises
+// let promise = new Promise((resolve, reject )=>{
+//     console.log("I am a promise ")
+//     resolve()
+// })
+
+const getPromise=()=>{
+    return new Promise((resolve,reject)=>{
+        console.log("I am a promise ")
+        resolve("Succes")
+        reject("error")
     })
-})
+}
+
+// let promise = getPromise();
+// promise.then((res)=>{
+//     console.log("promise is fullfilled",res)
+// })
+
+// promise.catch((err)=>{
+//     console.log("promise got error",err)
+// })
+
+
+// synchronisis  
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML += some + " ";
+}
+
+function myFirst(){
+    myDisplayer("hello")
+}
+
+function  mySecond(){
+    myDisplayer("Tanmay !!")    
+}
+
+myFirst();
+mySecond();
+
+// asynchronisis
+function Mydisplay(some){
+    console.log(some)
+}
+
+function Myfirst(){
+    Mydisplay("A")
+}
+
+setTimeout(()=>{
+    Mydisplay("B")
+},2000)
+
+
+function MySecond(){
+    Mydisplay("C")
+}
+Myfirst();
+MySecond();
