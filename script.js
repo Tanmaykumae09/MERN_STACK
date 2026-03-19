@@ -255,9 +255,9 @@ function Myfirst(){
     Mydisplay("A")
 }
 
-setTimeout(()=>{
-    Mydisplay("B")
-},2000)
+// setTimeout(()=>{
+//     Mydisplay("B")
+// },2000)
 
 
 function MySecond(){
@@ -265,3 +265,34 @@ function MySecond(){
 }
 Myfirst();
 MySecond();
+
+// set timeOut method 
+
+// function myfunction(){
+//     console.log("set Timeout ")
+// }
+
+
+// setTimeout(myfunction,3000)
+
+
+//set interval method 
+
+// function myfun(){
+//     console.log("set interval Method")
+// }
+
+// setInterval(myfun,5000)
+
+
+// call backs
+function dosomething(saydone){
+    console.log("I am doing something ")
+    saydone();
+}
+
+
+function saydone(){
+    console.log("Task is completed")
+}
+dosomething(saydone);
