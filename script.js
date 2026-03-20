@@ -280,7 +280,7 @@ MySecond();
 
 // function myfun(){
 //     console.log("set interval Method")
-// }
+// }    
 
 // setInterval(myfun,5000)
 
@@ -296,3 +296,54 @@ function saydone(){
     console.log("Task is completed")
 }
 dosomething(saydone);
+
+
+function dosomework(handleresult){      // handleresult is passed as the parameter (callback)
+    let result ="task completed"        // we are storing the string in the result 
+    handleresult(result)                // we are calling the handleresult same as previous but here it accepts the something input 
+}
+
+function handleresult(data){            // this is the callback , takes an input ! therefore data = result 
+    console.log(data)
+}
+
+dosomework(handleresult)                // same as previous 
+
+
+function test(callback){
+    let value = 5;
+    callback(value+5)
+}
+
+test(function(value){
+    console.log(value)    
+})
+
+
+const start=()=>{
+    console.log("start")
+}
+
+const inside=()=>{
+    console.log("i am inside the timeout")
+}
+
+const stop=()=>{
+    console.log("END")
+}
+
+start();
+
+setTimeout(() => {          // the set timeout method is the js built in - function 
+    inside()
+}, 2000);
+
+stop();
+
+console.log('A')
+
+setTimeout(() => {
+    console.log("B")
+}, 0);
+
+console.log("C")
