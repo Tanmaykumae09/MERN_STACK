@@ -334,9 +334,9 @@ const stop=()=>{
 
 start();
 
-setTimeout(() => {          // the set timeout method is the js built in - function 
-    inside()
-}, 2000);
+// setTimeout(() => {          // the set timeout method is the js built in - function 
+//     inside()
+// }, 2000);
 
 stop();
 
@@ -347,3 +347,31 @@ setTimeout(() => {
 }, 0);
 
 console.log("C")
+
+let promise = new Promise((resolve,reject)=>{
+    resolve("success")          // resolve is called && promise stage changes to full-filled && sucess is the value -> written in the inside paranthesis of resolve 
+})
+
+// const p = new Promise((resolve, reject) => {
+//     reject("Error");        // reject is called & promise stage changes to rejected && error is same as the sucess in resolve 
+// });
+
+
+const prom = new Promise((resolve,reject)=>{
+    let success = true                      // we are sending the value to promise 
+                                            // promise stores the value for the later use 
+    if(success){
+        resolve("task is completed")
+    }
+    else{
+        reject("Task got error ")
+    }
+})
+
+
+const p = new Promise((resolve,reject)=>{
+    resolve("hey I am tanmay!! ")           // we acces the value through .then() 
+})
+
+
+p.then(x =>console.log(x));                // then takes an input from the promise , and takes argments ->call back , parameter inside the call back to store the recived from the promise 
