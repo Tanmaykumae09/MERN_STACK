@@ -188,13 +188,13 @@ function calculator(sum) {
 calculator(sum)
 
 
-const getData = (data , getNextdata) => {
-    setTimeout(()=>{
+const getData = (data, getNextdata) => {
+    setTimeout(() => {
         console.log("DATA:", data);
-        if(getNextdata){
+        if (getNextdata) {
             getNextdata();
         }
-    },2000)
+    }, 2000)
 }
 
 // getData(1,()=>{
@@ -212,8 +212,8 @@ const getData = (data , getNextdata) => {
 //     resolve()
 // })
 
-const getPromise=()=>{
-    return new Promise((resolve,reject)=>{
+const getPromise = () => {
+    return new Promise((resolve, reject) => {
         console.log("I am a promise ")
         resolve("Succes")
         reject("error")
@@ -232,26 +232,26 @@ const getPromise=()=>{
 
 // synchronisis  
 function myDisplayer(some) {
-  document.getElementById("demo").innerHTML += some + " ";
+    document.getElementById("demo").innerHTML += some + " ";
 }
 
-function myFirst(){
+function myFirst() {
     myDisplayer("hello")
 }
 
-function  mySecond(){
-    myDisplayer("Tanmay !!")    
+function mySecond() {
+    myDisplayer("Tanmay !!")
 }
 
 myFirst();
 mySecond();
 
 // asynchronisis
-function Mydisplay(some){
+function Mydisplay(some) {
     console.log(some)
 }
 
-function Myfirst(){
+function Myfirst() {
     Mydisplay("A")
 }
 
@@ -260,7 +260,7 @@ function Myfirst(){
 // },2000)
 
 
-function MySecond(){
+function MySecond() {
     Mydisplay("C")
 }
 Myfirst();
@@ -286,49 +286,49 @@ MySecond();
 
 
 // call backs
-function dosomething(saydone){
+function dosomething(saydone) {
     console.log("I am doing something ")
     saydone();
 }
 
 
-function saydone(){
+function saydone() {
     console.log("Task is completed")
 }
 dosomething(saydone);
 
 
-function dosomework(handleresult){      // handleresult is passed as the parameter (callback)
-    let result ="task completed"        // we are storing the string in the result 
+function dosomework(handleresult) {      // handleresult is passed as the parameter (callback)
+    let result = "task completed"        // we are storing the string in the result 
     handleresult(result)                // we are calling the handleresult same as previous but here it accepts the something input 
 }
 
-function handleresult(data){            // this is the callback , takes an input ! therefore data = result 
+function handleresult(data) {            // this is the callback , takes an input ! therefore data = result 
     console.log(data)
 }
 
 dosomework(handleresult)                // same as previous 
 
 
-function test(callback){
+function test(callback) {
     let value = 5;
-    callback(value+5)
+    callback(value + 5)
 }
 
-test(function(value){
-    console.log(value)    
+test(function (value) {
+    console.log(value)
 })
 
 
-const start=()=>{
+const start = () => {
     console.log("start")
 }
 
-const inside=()=>{
+const inside = () => {
     console.log("i am inside the timeout")
 }
 
-const stop=()=>{
+const stop = () => {
     console.log("END")
 }
 
@@ -348,7 +348,7 @@ setTimeout(() => {
 
 console.log("C")
 
-let promise = new Promise((resolve,reject)=>{
+let promise = new Promise((resolve, reject) => {
     resolve("success")          // resolve is called && promise stage changes to full-filled && sucess is the value -> written in the inside paranthesis of resolve 
 })
 
@@ -357,21 +357,64 @@ let promise = new Promise((resolve,reject)=>{
 // });
 
 
-const prom = new Promise((resolve,reject)=>{
+const prom = new Promise((resolve, reject) => {
     let success = true                      // we are sending the value to promise 
-                                            // promise stores the value for the later use 
-    if(success){
+    // promise stores the value for the later use 
+    if (success) {
         resolve("task is completed")
     }
-    else{
+    else {
         reject("Task got error ")
     }
 })
 
 
-const p = new Promise((resolve,reject)=>{
+const p = new Promise((resolve, reject) => {
     resolve("hey I am tanmay!! ")           // we acces the value through .then() 
 })
 
 
-p.then(x =>console.log(x));                // then takes an input from the promise , and takes argments ->call back , parameter inside the call back to store the recived from the promise 
+p.then(x => console.log(x));                // then takes an input from the promise , and takes argments ->call back , parameter inside the call back to store the recived from the promise 
+
+
+function myDisplayer(value) {
+    document.getElementById("demo").innerHTML = value;
+    console.log(value)
+}
+
+
+const k = new Promise((resolve, rejct) => {
+    ok = false;
+
+    if (ok) {
+        resolve(".OK")
+    } else {
+        rejct(".Not okey!!")
+    }
+})
+
+k.then(x => myDisplayer(x),         // then accepts the two call-backs 1.for sucess 2.for failure
+    x => myDisplayer(x))
+
+
+
+function DED(value,background) {
+    document.querySelector(".D").innerHTML = "value"
+    document.querySelector(".D").style.background=background;
+}
+
+const z = new Promise((resolve,rejct)=>{
+    value = true;
+
+    if(value){
+        resolve("Then !!","red")
+       
+    }
+    else{
+        rejct("Catch !! ")
+    }
+})
+
+
+z.then(x=>DED(x))
+.catch(y=>DED(y))
