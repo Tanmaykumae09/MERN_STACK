@@ -418,3 +418,21 @@ const z = new Promise((resolve,rejct)=>{
 
 z.then(x=>DED(x))
 .catch(y=>DED(y))
+
+
+// promise chainging 
+const t = new Promise((resolve,reject)=>{
+    resolve(5);         // chaining is just passing value from .then() to another .then()
+})
+
+t.then((x)=>{return x*2 ;})
+ .then((y)=>{console.log(y)})
+
+
+const q = new Promise((resolve,reject)=>{
+    resolve(2)
+})
+
+q.then((x=> x+3))       // without { } functioins auto matically return the value 
+ .then((x=> x*4))
+ .then(x=> console.log(x))
