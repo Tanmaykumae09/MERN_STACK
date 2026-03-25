@@ -436,3 +436,10 @@ const q = new Promise((resolve,reject)=>{
 q.then((x=> x+3))       // without { } functioins auto matically return the value 
  .then((x=> x*4))
  .then(x=> console.log(x))
+
+ //async vs await 
+ async function test() {        // async makes a function always return a Promise 
+    return 10;
+ }
+
+test().then(x=>console.log(x))    // java-script automatically converts it to promise 
